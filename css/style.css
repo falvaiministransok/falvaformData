@@ -59,12 +59,16 @@ body {
    font-size: 12px;
 }
 
+
 #kerdes { 
    text-align: center;
 }
 
-div.reason-list {
+/*div.reason-list {
     margin: 5px;
-    
     position: center;
+}*/
+
+.answer {
+    display:none;
 }

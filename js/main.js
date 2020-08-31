@@ -1,21 +1,38 @@
-function ShowHideDiv() {
-    let reasonList = document.getElementById("reasonList");
-    let Igen = document.getElementById("Igen");
-    Igen.style.display = reasonList.value == "Y" ? "block" : "none";
-    let Nem = document.getElementById("Nem");
-    Nem.style.display = reasonList.value = "N" ? "block" : "none";
+/*function Change() {
+
+    if ((document.getElementById('answerYes').checked)) {
+        document.getElementById('Igen').style.visibility = "visible";
+    }
+    else {
+        document.getElementById('Igen').style.visibility = "hidden";
+    }
+    if ((document.getElementById('answerNo').checked)) {
+        document.getElementById('Nem').style.visibility = "visible";
+    }
+    else {
+        document.getElementById('Nem').style.visibility = "hidden";
+    }
+}*/
+
+function displayQuestion(answer) {
+
+    document.getElementById(answer + 'Question').style.display = "block";
+
+    if (answer == "yes") { // hide the div that is not selected
+
+        document.getElementById('noQuestion').style.display = "none";
+
+    } else if (answer == "no") {
+
+        document.getElementById('yesQuestion').style.display = "none";
+
+    }
+
 }
 
-function SubForm() {
-    $.ajax({
-        url: 'https://api.apispreadsheets.com/data/1246/',
-        type: 'post',
-        data: $("#myForm").serializeArray(),
-        success: function () {
-            alert("Form Data Submitted :)")
-        },
-        error: function () {
-            alert("There was an error :(")
-        }
-    });
-}
+var btnClear = document.querySelector('button');
+var inputs = document.querySelectorAll('input');
+
+btnClear.addEventListener('click', () => {
+    inputs.forEach(input => input.value = '');
+});
